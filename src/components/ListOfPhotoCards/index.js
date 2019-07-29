@@ -1,13 +1,14 @@
 import React from 'react'
 import { PhotoCard } from '../PhotoCard'
 import { photos } from '../../../api/db.json'
+import { List, Item } from './styles'
 
 export const ListOfPhotoCards = () => {
   return (
-    <ul>
+    <List>
       {
-        photos.map(photo => <li key={photo.id}><PhotoCard {...photo} /></li>)
+        photos.map(photo => <Item key={photo.id}><PhotoCard {...photo} /></Item>)
       }
-    </ul>
+    </List>
   )
 }

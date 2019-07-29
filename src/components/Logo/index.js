@@ -1,7 +1,8 @@
 import React from 'react'
+import { Svg } from './styles'
 
 export const Logo = props => (
-  <svg
+  <Svg
     width={392.06}
     height={124.44}
     viewBox='53.97 12.78 392.06 124.44'
@@ -47,5 +48,5 @@ export const Logo = props => (
       filter='url(#prefix__editing-stripes)'
     />
     <style />
-  </svg>
+  </Svg>
 )
