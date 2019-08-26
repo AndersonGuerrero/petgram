@@ -4,7 +4,6 @@ import { gql } from 'apollo-boost'
 import { Loading as Spinner } from '../Loading'
 
 import { PhotoCard } from '../PhotoCard'
-import { photos } from '../../../api/db.json'
 import { List, Item } from './styles'
 
 const widthPhotos = graphql(gql`
@@ -21,14 +20,14 @@ const widthPhotos = graphql(gql`
 )
 
 const ListOfPhotoCardsComponent = ({ data }) => {
-  console.log(data)
   const { loading, photos } = data
+  console.log(photos)
   return (
     <List>
       {
         loading
-        ? <Spinner />
-        :photos.map(photo => <Item key={photo.id}><PhotoCard {...photo} /></Item>)
+          ? <Spinner />
+          : photos.map(photo => <Item key={photo.id}><PhotoCard {...photo} /></Item>)
       }
     </List>
   )
