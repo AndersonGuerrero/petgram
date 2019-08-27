@@ -6,10 +6,9 @@ import { PhotoCard } from '../PhotoCard'
 import { List, Item } from '../ListOfPhotoCards/styles'
 import { GET_PHOTO_QUERY } from '../../queries'
 
-const DetailOfPhotoCardComponent = (props) => {
-  const { id } = props.match.params
+const DetailOfPhotoCardComponent = ({ photoId }) => {
   const { loading, error, data } = useQuery(GET_PHOTO_QUERY, {
-    variables: { id: id }
+    variables: { id: photoId }
   })
   if (error) return `Error: ${error}`
   return (

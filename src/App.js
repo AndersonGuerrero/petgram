@@ -4,6 +4,7 @@ import { Router } from '@reach/router'
 import { GlobalStyles } from './styles/GlobalStyles'
 import { Logo } from './components/Logo'
 import { Home, Detail } from './pages'
+import { NavBar } from './components/NavBar'
 
 export const App = () => {
   return (
@@ -15,6 +16,7 @@ export const App = () => {
         <Home path='/category/:id' />
         <Detail path='/detail/:id' />
       </Router>
+      <NavBar />
     </Fragment>
   )
 }
