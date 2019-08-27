@@ -1,28 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
+import { useQuery } from 'react-apollo-hooks'
+import { GET_CATEGORYS_QUERY } from '../../queries'
 import { Category } from '../Category'
 import { List, Item } from './styles'
 import { Loading } from '../Loading'
 
-function useCategoriesData () {
-  const [categories, setCategories] = useState([])
-  const [loading, setLoading] = useState(false)
-
-  useEffect(function () {
-    setLoading(true)
-    window.fetch('https://petgram-api-anderson.now.sh/categories')
-      .then(res => res.json())
-      .then(response => {
-        setCategories(response)
-        setLoading(false)
-      })
-  }, [])
-
-  return { categories, loading }
-}
-
-export const ListOfCategories = () => {
-  const { categories, loading } = useCategoriesData()
+export const ListOfCategories = ({ categoryName }) => {
   const [showFixed, setShowFixed] = useState(false)
+  const { data, loading } = useQuery(GET_CATEGORYS_QUERY)
 
   useEffect(function () {
     const onScroll = e => {
@@ -32,7 +17,6 @@ export const ListOfCategories = () => {
     }
     onScroll()
     document.addEventListener('scroll', onScroll)
-
     return () => document.removeEventListener('scroll', onScroll)
   }, [showFixed])
 
@@ -41,14 +25,15 @@ export const ListOfCategories = () => {
       {
         loading
           ? <Loading />
-          : categories.map(category => <Item key={category.id}><Category {...category} /></Item>)
+          : data.categories.map(category => <Item key={category.id}><Category {...category} path={`/category/${category.id}`} /></Item>)
       }
     </List>
   )
+
   return (
-    <>
+    <Fragment>
       {renderList()}
       {showFixed && renderList(true)}
-    </>
+    </Fragment>
   )
 }

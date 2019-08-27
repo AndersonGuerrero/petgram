@@ -20,17 +20,18 @@ export const Img = styled.img`
   top:0;
   width: 100%;
 `
-export const Button = styled.button`
-  display: flex;
-  align-items: center;
-  padding-top: 8px;
-  & svg {
-    margin: 4px;
-  }
-
-`
 
 export const Article = styled.article`
   min-height: 270px;
 
+`
+
+export const Button = styled.button`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-top: 8px;
+  & svg {
+    margin: 4px;
+  }
 `

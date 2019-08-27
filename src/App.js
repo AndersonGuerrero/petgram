@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import { Router } from '@reach/router'
 
-import { ListOfCategories } from './components/ListOfCategories'
 import { GlobalStyles } from './styles/GlobalStyles'
-import { ListOfPhotoCards } from './components/ListOfPhotoCards'
 import { Logo } from './components/Logo'
+import { Home, Detail } from './pages'
 
-export const App = () => (
-  <>
-    <GlobalStyles />
-    <Logo />
-    <ListOfCategories />
-    <ListOfPhotoCards />
-  </>
-)
+export const App = () => {
+  return (
+    <Fragment>
+      <GlobalStyles />
+      <Logo />
+      <Router>
+        <Home path='/' />
+        <Home path='/category/:id' />
+        <Detail path='/detail/:id' />
+      </Router>
+    </Fragment>
+  )
+}
