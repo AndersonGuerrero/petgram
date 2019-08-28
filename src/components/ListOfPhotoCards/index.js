@@ -1,26 +1,7 @@
-import React from 'react'
-import { useQuery } from 'react-apollo-hooks'
+import { ListAll } from './ListAll'
+import { ListFavs } from './ListFavs'
 
-import { Loading as Spinner } from '../Loading'
-import { PhotoCard } from '../PhotoCard'
-import { List, Item } from './styles'
-import { GET_PHOTOS_QUERY } from '../../queries'
-
-const ListOfPhotoCardsComponent = ({ categoryId = null }) => {
-  const variables = {}
-  if (categoryId) variables.categoryId = categoryId
-
-  const { loading, error, data } = useQuery(GET_PHOTOS_QUERY, { variables })
-  if (error) return `Error: ${error}`
-  return (
-    <List>
-      {
-        loading
-          ? <Spinner />
-          : data.photos.map(photo => <Item key={photo.id}><PhotoCard {...photo} /></Item>)
-      }
-    </List>
-  )
+export {
+	ListFavs,
+	ListAll
 }
-
-export const ListOfPhotoCards = ListOfPhotoCardsComponent

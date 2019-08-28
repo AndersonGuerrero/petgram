@@ -1,4 +1,8 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
+
+export const Div = styled.div`
+  margin-bottom: 45px;
+`
 
 export const GlobalStyles = createGlobalStyle`
   html {

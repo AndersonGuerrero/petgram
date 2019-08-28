@@ -45,3 +45,16 @@ export const useNearScreen = () => {
 
   return [show, element]
 }
+
+export const useInputValue = (initialValues = {}) => {
+  const [inp, setInp] = useState(initialValues)
+
+  const onChange = (e) => {
+    const { name, value } = e.target
+    setInp({
+      ...inp,
+      [name]: value
+    })
+  }
+  return [inp, onChange]
+}

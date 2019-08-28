@@ -12,6 +12,18 @@ export const GET_PHOTOS_QUERY = gql`
   }
 }`
 
+export const GET_FAVS_QUERY = gql`
+  query getFavs {
+    favs {
+      id
+      categoryId
+      src
+      likes
+      liked
+      userId
+  }
+}`
+
 export const GET_PHOTO_QUERY = gql`
   query getSinglePhoto($id: ID!) {
     photo(id: $id) {
