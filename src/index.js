@@ -7,7 +7,7 @@ import Context from './Context'
 import { App } from './App'
 
 const client = new ApolloClient({
-  uri: 'https://petgram-server-api.now.sh/graphql',
+  uri: 'https://petgram-server.now.sh/graphql',
   request: operation => {
     const token = window.window.sessionStorage.getItem('token')
     const authorization = token ? `Bearer ${token}` : ''
