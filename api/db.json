@@ -21,6 +21,13 @@
       ],
       "avatar": "https://gravatar.com/avatar/3bccd59be0a57b39bdd9b2760702795e",
       "email": "dani@gmail.com"
+    },
+    {
+      "id": "b6c50d90-cacb-11e9-9bf0-bffc61c91d00",
+      "password": "$2b$10$ke6R4njVtbS3A4sunEqqT.B80gqLIp8S5q9Ycko4p2SsRgzQW/KVe",
+      "favs": [],
+      "avatar": "https://gravatar.com/avatar/b52dd3cee64cf38f5ddcaa07875b4e64",
+      "email": "admin@crmlite.com"
     }
   ],
   "categories": [
