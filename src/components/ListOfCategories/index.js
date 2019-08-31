@@ -5,7 +5,7 @@ import { Category } from '../Category'
 import { List, Item } from './styles'
 import { Loading } from '../Loading'
 
-export const ListOfCategories = ({ categoryName }) => {
+const ListOfCategoriesComponent = ({ categoryName }) => {
   const [showFixed, setShowFixed] = useState(false)
   const { data, loading } = useQuery(GET_CATEGORYS_QUERY)
 
@@ -37,3 +37,5 @@ export const ListOfCategories = ({ categoryName }) => {
     </Fragment>
   )
 }
+
+export const ListOfCategories = React.memo(ListOfCategoriesComponent)

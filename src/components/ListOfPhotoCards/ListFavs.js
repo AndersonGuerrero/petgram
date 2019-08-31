@@ -7,7 +7,7 @@ import { List, Item } from './styles'
 import { GET_FAVS_QUERY } from '../../queries'
 
 export const ListFavs = () => {
-  const { loading, error, data } = useQuery(GET_FAVS_QUERY)
+  const { loading, error, data } = useQuery(GET_FAVS_QUERY, { fetchPolicy: 'network-only' })
   if (error) return `Error: ${error}`
   return (
     <List>

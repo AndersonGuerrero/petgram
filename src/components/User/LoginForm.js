@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react'
 import { useMutation } from 'react-apollo-hooks'
 import { useInputValue } from '../../hooks'
-import { Form, Input, Button, Title, Error } from './styles'
+import { Form, Input, Title, Error } from './styles'
+import { SubmitButton } from '../SubmitButton'
 import { Loading } from '../Loading'
 import { LOGIN_USER_MUTATION } from '../../mutations'
 
@@ -29,9 +30,9 @@ export const LoginForm = ({ activateAuth }) => {
           loading &&
           <Loading />
         }
-        <Button disabled={loading}>
+        <SubmitButton disabled={loading}>
           Login
-        </Button>
+        </SubmitButton>
       </Form>
       <Error>{errorMessage}</Error>
     </Fragment>

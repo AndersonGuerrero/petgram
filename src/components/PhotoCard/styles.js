@@ -25,13 +25,3 @@ export const Article = styled.article`
   min-height: 270px;
 
 `
-
-export const Button = styled.button`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  padding-top: 8px;
-  & svg {
-    margin: 4px;
-  }
-`

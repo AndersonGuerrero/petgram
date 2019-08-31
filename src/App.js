@@ -1,39 +1,35 @@
-import React, { Fragment } from 'react'
-import { Router } from '@reach/router'
+import React, { useContext, Suspense } from 'react'
+import { Router, Redirect } from '@reach/router'
 
 import { GlobalStyles, Div } from './styles/GlobalStyles'
 import { Logo } from './components/Logo'
-import { Home, Detail, Favs, User, NotRegisteredUser } from './pages'
+import { Home, Detail, User, NotRegisteredUser, NotFound } from './pages'
 import { NavBar } from './components/NavBar'
-import Context from './Context'
+import { Context } from './Context'
+
+const Favs = React.lazy(() => import('./pages/Favs'))
 
 export const App = () => {
+  const { isAuth } = useContext(Context)
   return (
-    <Fragment>
+    <Suspense fallback={<div />}>
       <GlobalStyles />
       <Logo />
       <Div>
         <Router>
+          <NotFound default />
+          { !isAuth && <NotRegisteredUser path='/login' /> }
+          { !isAuth && <Redirect from='/favs' to='/login' /> }
+          { !isAuth && <Redirect from='/user' to='/login' /> }
+          { isAuth && <Redirect from='/login' to='/' /> }
           <Home path='/' />
           <Home path='/category/:id' />
           <Detail path='/detail/:id' />
+          <User path='/user' />
+          <Favs path='/favs' />
         </Router>
-        <Context.Consumer>
-          {
-            ({ isAuth }) =>
-              isAuth
-                ? <Router>
-                  <User path='/user' />
-                  <Favs path='/favs' />
-                </Router>
-                : <Router>
-                  <NotRegisteredUser path='/favs' />
-                  <NotRegisteredUser path='/user' />
-                </Router>
-          }
-        </Context.Consumer>
       </Div>
       <NavBar />
-    </Fragment>
+    </Suspense>
   )
 }

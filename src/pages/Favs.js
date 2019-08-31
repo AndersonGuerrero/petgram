@@ -1,8 +1,14 @@
 import React from 'react'
 import { ListFavs } from '../components/ListOfPhotoCards'
+import { Layout } from '../components/Layout'
 
-export const Favs = () => {
+export default () => {
   return (
-    <ListFavs />
+    <Layout
+      title={'Tus Favoritos'}
+      description={'Aqui puedes encontrar tus fotos de mascotas favoritas'}
+    >
+      <ListFavs />
+    </Layout>
   )
 }
