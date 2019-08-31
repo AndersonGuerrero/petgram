@@ -11,5 +11,5 @@ npm i
 npm run dev
 
 # Test
-./node_modules/.bin/webpack --mode "development"
+./node_modules/.bin/webpack --mode "development" <br>
 npx serve dist -s
