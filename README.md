@@ -11,5 +11,7 @@ npm i
 npm run dev
 
 # Test
+./node_modules/.bin/cypress open
+
 ./node_modules/.bin/webpack --mode "development" <br>
 npx serve dist -s
